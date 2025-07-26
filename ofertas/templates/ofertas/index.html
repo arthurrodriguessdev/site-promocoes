@@ -3,4 +3,19 @@
 
 {% block title %}Ofertas{% endblock %}
 
-{% block content %}{% endblock %}
+{% block content %}
+<section class="ofertas">
+  <h2 class="titulo-secao">Ofertas do dia</h2>
+
+  <div class="cards-container">
+    {% for oferta in ofertas %}
+      <div class="card">
+        <h3>Supermercado {{ oferta.supermercado }}</h3>
+        <p>{{ oferta.descricao }}</p>
+        <a href="#" class="botao-ver-ofertas">Ver ofertas</a>
+      </div>
+    {% endfor %}
+  </div> 
+  
+</section>
+{% endblock %}
