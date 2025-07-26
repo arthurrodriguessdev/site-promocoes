@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <title>{% block title %}Document{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <section class="menu">
+            <div class="menu-container">
+                <p class="boas-vindas">Seja <span class="boas-vindas-destaque">bem-vindo!</span></p>
+                <nav>
+                    <ul class="menu-links">
+                        <li><a href="">Ínicio</a></li>
+                        <li><a href="">Sobre</a></li>
+                        <li><a href="">Contatos</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <section class="rodape">
+            <div class="rodape-container">
+                <p class="direitos">&copy; 2025 Todos os direitos reservados.</p>
+                <nav>
+                    <ul class="footer-links">
+                        <li><a href="#">Política</a></li>
+                        <li><a href="#">Termos</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+    </footer>
+</body>
+</html>

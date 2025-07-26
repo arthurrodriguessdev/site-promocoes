@@ -1,0 +1,110 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Header/menu principal */
+.menu {
+    background-color: rgb(255, 60, 26);
+    padding: 30px 40px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* sombra leve pro destaque */
+}
+
+/* Agrupamento de boas-vindas e menu */
+.menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Mensagem de boas-vindas */
+.boas-vindas {
+    color: #f4f4f4;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.boas-vindas-destaque{
+    font-weight: bold;
+    font-style: italic;
+    color: rgb(255, 210, 210);
+}
+
+/* Lista de links do menu */
+.menu-links {
+    list-style: none;
+    display: flex;
+    gap: 80px;
+}
+
+/* Estilo individual dos links */
+.menu-links li a {
+    text-decoration: none;
+    color: #f4f4f4;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.menu-links li a:hover {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 10px;
+    color: rgb(227, 44, 11);
+    font-weight: 600;
+    
+}
+
+/* Personalização do rodapé */
+.rodape {
+    background: #1a1a1a;
+    padding: 30px 40px;
+    border-top: 2px solid rgb(255, 60, 26);
+}
+
+/* Container centralizado */
+.rodape-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Texto centralizado */
+.direitos {
+    color: #f4f4f4;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+/* Lista de links */
+.footer-links {
+    list-style: none;
+    display: flex;
+    gap: 80px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+}
+
+/* Estilo dos links */
+.footer-links li a {
+    text-decoration: none;
+    color: #f4f4f4;
+    font-weight: 400;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+/* Após passar o mouse */
+.footer-links li a:hover {
+    color: rgb(255, 60, 26);
+}
