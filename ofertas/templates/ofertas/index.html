@@ -8,13 +8,17 @@
   <h2 class="titulo-secao">Ofertas do dia</h2>
 
   <div class="cards-container">
+    {% if ofertas %}
     {% for oferta in ofertas %}
       <div class="card">
-        <h3>Supermercado {{ oferta.supermercado }}</h3>
-        <p>{{ oferta.descricao }}</p>
+        <h3>Supermercado {{ oferta.nome_supermercado }}</h3>
+        <p>{{ oferta.produtos_em_promocao }}</p>
         <a href="#" class="botao-ver-ofertas">Ver ofertas</a>
       </div>
     {% endfor %}
+    {% else %}
+    <p>Nenhuma oferta disponível</p>
+    {% endif %}
   </div> 
   
 </section>

@@ -1,15 +1,10 @@
 from django.shortcuts import render
+from ofertas.models import Oferta
 
 def index(request):
+    oferta = Oferta.objects.all()
     ofertas = {
-        'ofertas': [
-            {'supermercado': 'Barbosa', 'descricao': 'arroz, feijao, macarrao'},
-            {'supermercado': 'Esperança', 'descricao': 'carne, travesseiro, chcocolate'},
-            {'supermercado': 'Brasil', 'descricao': 'sorvete, açaí, banana'},
-            {'supermercado': 'Central', 'descricao': 'Arroz, Feijão, Açúcar'},
-            {'supermercado': 'Nova Vida', 'descricao': 'Leite, Pão, Café'},
-            {'supermercado': 'Bom Preço', 'descricao': 'Sabão em pó, Detergente, Amaciante'},
-        ]
+        'ofertas': oferta
     }
 
     return render(request, 'ofertas/index.html', ofertas)
