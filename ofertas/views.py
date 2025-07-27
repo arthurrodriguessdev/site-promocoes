@@ -8,3 +8,6 @@ def index(request):
     }
 
     return render(request, 'ofertas/index.html', ofertas)
+
+def detalhamento_oferta(request):
+    return render(request, 'ofertas/detalhes_oferta.html')
