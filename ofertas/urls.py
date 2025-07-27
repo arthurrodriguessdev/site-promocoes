@@ -3,5 +3,5 @@ from ofertas.views import index, detalhamento_oferta
 
 urlpatterns = [
     path('', index, name='index'),
-    path('detalhamento', detalhamento_oferta, name='detalhamento')
+    path('detalhamento/<int:id>', detalhamento_oferta, name='detalhamento')
 ]

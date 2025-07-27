@@ -170,3 +170,61 @@
     color: rgb(255, 60, 26);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
+
+.container-detalhe {
+    min-height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-detalhes {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    gap: 10px;
+    border-radius: 20px;
+    background-color: rgb(255, 60, 26);
+    padding: 80px;
+    width: 700px;
+    font-size: 18px;
+}
+
+.card-detalhes h2 {
+    background-color: #fff;
+    color: rgb(255, 60, 26);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    font-size: 36px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.card-detalhes h2:hover{
+    background: rgb(255, 60, 26);
+    color: #fff;
+}
+
+.paragrafos-detalhes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 70px;
+}
+
+.lista-info {
+    
+    color: #fff; /* opcional: cor dos textos */
+    list-style-position: inside; /* bullets dentro da área do texto */
+}
+
+.lista-info li{
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #fff;
+    
+}

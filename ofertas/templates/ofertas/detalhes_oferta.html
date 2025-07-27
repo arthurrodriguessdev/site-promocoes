@@ -3,5 +3,20 @@
 {% block title %}Ofertas detalhadas{% endblock %}
 
 {% block content %}
-<h1>Iniciar daqui</h1>
+<section>
+    <div class="container-detalhe">
+        <div class="card-detalhes">
+            <h2>{{ detalhes.titulo_promocao }}</h2>
+            <div class="paragrafos-detalhes">
+                <ul class="lista-info">
+                    <li>Nome do estabelecimento: {{ detalhes.nome_supermercado }}</li>
+                    <li>Produtos em promoção: {{ detalhes.produtos_em_promocao }}</li>
+                    <li>Data de início da promoção: {{ detalhes.inicio_promocao }}</li>
+                    <li>Endereço do estabelecimento: {{ detalhes.endereco_supermercado }}</li>
+                    <li>Telefone de contato: {{ detalhes.numero_telefone }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
