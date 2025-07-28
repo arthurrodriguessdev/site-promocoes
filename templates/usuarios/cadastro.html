@@ -7,7 +7,7 @@
 {% block subtext %}<p>Insira suas informações e cadastre-se</p>{% endblock %}
 
 {% block form %}
-<form action="">
+<form action="{% url 'cadastro' %}" method="POST">
     <input type="text" id="user" name="user" placeholder="Digite seu nome de usuário">
     <input type="email" id="email" name="email" placeholder="Insira seu E-mail">
     <input type="password" id="senha" name="senha" placeholder="Crie uma senha">

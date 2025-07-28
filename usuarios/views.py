@@ -1,6 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 def cadastro(request):
+    if request.method == "POST":
+        print('usuario criado com sucesso')
+    
+
+    
+
     return render(request, 'usuarios/cadastro.html')
 
 
