@@ -5,18 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/usuarios/style.css' %}">
-    <title>Página de Login</title>
+    <title>{% block title %}Página de Login{% endblock %}</title>
 </head>
 <body>
     <div class="container">
         <div class="container-form">
-            <h2>Bem-vindo de volta</h2>
-            <p>Preencha os campos e <span class="paragrafo-detalhe">acesse sua conta</span></p>
-            <form action="POST">
+            {% block heading %}<h2>Bem-vindo de volta</h2>{% endblock %}
+            {% block subtext %}<p>Preencha os campos e <span class="paragrafo-detalhe">acesse sua conta</span></p>{% endblock %}
+            {% block form %}
+            <form>
                 <input type="email" id="email" name="email" placeholder="Digite seu E-mail">
                 <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
                 <button type="submit" value="entrar">Entrar</button>
+                <p class="ou-criar-conta">Ou</p>
+                <a href="{%  url 'cadastro' %}" class="botao-criar-conta">Criar conta</a>
             </form>
+            {% endblock %}
         </div>
     </div>
 </body>

@@ -1,0 +1,17 @@
+{% extends 'usuarios/login.html' %}
+
+{% block title %}Página de Cadastro{% endblock %}
+
+{% block heading %}<h2>Faça seu cadastro</h2>{% endblock %}
+
+{% block subtext %}<p>Insira suas informações e cadastre-se</p>{% endblock %}
+
+{% block form %}
+<form action="">
+    <input type="text" id="user" name="user" placeholder="Digite seu nome de usuário">
+    <input type="email" id="email" name="email" placeholder="Insira seu E-mail">
+    <input type="password" id="senha" name="senha" placeholder="Crie uma senha">
+    <input type="password" id="senha" name="senha" placeholder="Confirme sua senha">
+    <button type="submit" value="entrar">Criar conta</button>
+</form>
+{% endblock %}

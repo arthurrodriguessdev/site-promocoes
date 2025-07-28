@@ -15,7 +15,7 @@
     height: 100vh;
 }
 
-
+/* div do formulário propriamente dito */
 .container-form {
     background-color: rgb(255, 255, 255);
     padding: 40px;
@@ -27,6 +27,7 @@
     height: 600px;
 }
 
+/* disposição dos elementos que estão dentro do forms, ex: inputs, botões */
 .container-form form{
     display: flex;
     flex-direction: column;
@@ -35,6 +36,7 @@
     align-items: center;
 }
 
+/* título dentro do forms */
 .container-form h2{
     text-align: center;
     color: rgb(255, 60, 26);
@@ -42,6 +44,7 @@
     margin-top: 20px;
 }
 
+/* parágrafo adicional abaixo do titulo */
 .container-form p{
     text-align: center;
     color: rgb(34, 34, 34);
@@ -50,10 +53,12 @@
     
 }
 
+/* span do parágrafo */
 .paragrafo-detalhe{
     font-weight: 800;
 }
 
+/* estilização dos campos de entrada */
 .container-form input{
     padding: 14px;
     border-radius: 20px;
@@ -64,11 +69,13 @@
     align-items: center;
 }
 
+/* estilização dos placeholders dentro dos campos de entradas */
 .container-form input::placeholder{
     color: #fff;
     font-style: italic;
 }
 
+/* estilização do botão de entrar */
 .container-form button{
     width: 300px;
     padding: 12px;
@@ -79,8 +86,33 @@
     transition: all 0.3s ease;
 }
 
+/* hover do botão */
 .container-form button:hover{
     background: #fff;
     color: rgb(255, 60, 26);
     cursor: pointer;
+    font-weight: bold;
+}
+
+.botao-criar-conta {
+    display: flex;            
+    justify-content: center;    
+    align-items: center;   
+    text-decoration: none;     
+    font-style: normal;         
+    width: 300px;
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    background: rgb(255, 60, 26);
+    color: #fff;
+    transition: all 0.3s ease;
+           
+}
+
+.botao-criar-conta:hover{
+    background: #fff;
+    color: rgb(255, 60, 26);
+    cursor: pointer;
+    font-weight: bold; 
 }
