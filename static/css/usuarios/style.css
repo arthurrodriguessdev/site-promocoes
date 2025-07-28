@@ -1,0 +1,86 @@
+/* reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* aplicando display flex, centralizando elementos filho e ocupando a tela toda (height: 100vh) */
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 60, 26);
+    height: 100vh;
+}
+
+
+.container-form {
+    background-color: rgb(255, 255, 255);
+    padding: 40px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 500px;
+    height: 600px;
+}
+
+.container-form form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 90px;
+    align-items: center;
+}
+
+.container-form h2{
+    text-align: center;
+    color: rgb(255, 60, 26);
+    font-weight: 800;
+    margin-top: 20px;
+}
+
+.container-form p{
+    text-align: center;
+    color: rgb(34, 34, 34);
+    font-style: italic;
+    margin-top: 0px;
+    
+}
+
+.paragrafo-detalhe{
+    font-weight: 800;
+}
+
+.container-form input{
+    padding: 14px;
+    border-radius: 20px;
+    border-style: none;
+    background-color: #1a222b;
+    width: 300px;
+    color: #fff;
+    align-items: center;
+}
+
+.container-form input::placeholder{
+    color: #fff;
+    font-style: italic;
+}
+
+.container-form button{
+    width: 300px;
+    padding: 12px;
+    border-radius: 20px;
+    border-style: none;
+    background: rgb(255, 60, 26);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.container-form button:hover{
+    background: #fff;
+    color: rgb(255, 60, 26);
+    cursor: pointer;
+}

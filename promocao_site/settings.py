@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ofertas',
+    'ofertas', #Adicionado
+    'usuarios', #Adicionado
 ]
 
 MIDDLEWARE = [
@@ -76,9 +77,9 @@ WSGI_APPLICATION = 'promocao_site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'supermercado',
+        'NAME': 'promocoes',
         'USER': 'postgres',
-        'PASSWORD': '1801',
+        'PASSWORD': 'Ar1801!',
         'HOST': 'localhost',
     }
 }
@@ -119,6 +120,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # isso diz ao Django onde procurar arquivos estáticos no desenvolvimento
+]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

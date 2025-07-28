@@ -1,4 +1,4 @@
-#!/home/arthur/site_promocao/venv/bin/python3
+#!/home/arthur/site-promocoes/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

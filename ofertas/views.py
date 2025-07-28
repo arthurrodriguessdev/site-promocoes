@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from ofertas.models import Oferta
 
 def index(request):
-    oferta = Oferta.objects.all()
+    oferta = Oferta.objects.all() #Pega todos os objetos do banco de dados e salva na variável
     ofertas = {
         'ofertas': oferta
     }
@@ -10,7 +10,7 @@ def index(request):
     return render(request, 'ofertas/index.html', ofertas)
 
 def detalhamento_oferta(request, id):
-    oferta = get_object_or_404(Oferta, id=id)
+    oferta = get_object_or_404(Oferta, id=id) #Pega o objeto que tem o ID específico ou erro 404 
 
     detalhamento = {
         'detalhes': oferta
