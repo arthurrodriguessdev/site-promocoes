@@ -1,36 +1,41 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+{% block extra_css %} <link rel="stylesheet" href="{% static 'css/listas/criar_listas.css' %}"> {% endblock %}
+
 {% block title %}Criar Lista{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-  <h1 class="ola-nome" style="font-size: 34px;">Crie sua lista, {{ user.username }}</h1>
-{% endif %}
 
-<h2>Criar Lista de Compras</h2>
 
-<form method="post">
-  {% csrf_token %}
+  <div class="criar-lista-container">
+      {% if user.is_authenticated %}
+        <h1 class="nome-criar-lista">Crie sua lista, {{ user.username|title }}</h1>
+      {% endif %}
+      
+    <div class="criar-lista-form">
+      <h2>Criar Lista de Compras</h2>
+      <form method="post">
 
-  <!-- Nome da lista -->
-  <label for="id_nome_lista">Nome da Lista:</label>
-  <input type="text" name="nome_lista" id="id_nome_lista" required><br><br>
+        {% csrf_token %}
+        <label for="id_nome_lista">Nome da Lista:</label>
+        <input type="text" name="nome_lista" id="id_nome_lista" required>
 
-  <!-- Item 1 -->
-  <label for="id_item_1">Item:</label>
-  <input type="text" name="item_1" id="id_item_1" required>
+        <label for="id_item_1">Item:</label>
+        <input type="text" name="item_1" id="id_item_1" required>
 
-  <label for="id_qtd_1">Quantidade:</label>
-  <input type="number" name="qtd_1" id="id_qtd_1" min="1" value="1" required><br><br>
+        <label for="id_qtd_1">Quantidade:</label>
+        <input type="number" name="qtd_1" id="id_qtd_1" min="1" value="1" required>
 
-  <!-- Item 2 -->
-  <label for="id_item_2">Item:</label>
-  <input type="text" name="item_2" id="id_item_2">
+        <label for="id_item_2">Item:</label>
+        <input type="text" name="item_2" id="id_item_2">
 
-  <label for="id_qtd_2">Quantidade:</label>
-  <input type="number" name="qtd_2" id="id_qtd_2" min="1" value="1"><br><br>
+        <label for="id_qtd_2">Quantidade:</label>
+        <input type="number" name="qtd_2" id="id_qtd_2" min="1" value="1">
 
-  <!-- Botão de envio -->
-  <button type="submit">Salvar Lista</button>
-</form>
+        <button type="submit">Salvar Lista</button>
+      </form>
+    </div>
+  </div>
 {% endblock %}

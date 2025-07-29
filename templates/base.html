@@ -1,10 +1,13 @@
-{% load static %}
+{% load static django_browser_reload %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/usuarios/style.css'%}">
+    {% block extra_css %}{% endblock %} <!-- Adicionar css extra em templates filhos --> 
+    
     <title>{% block title %}Document{% endblock %}</title>
 </head>
 <body>

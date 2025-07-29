@@ -1,0 +1,68 @@
+.criar-lista-container h1{
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 36px;
+    margin: 30px auto 60px auto;
+    background-color: #1a222b;
+    padding: 20px;
+    border-radius: 20px;
+    width: 50%; /* ajuste aqui a largura do fundo */
+}
+
+.criar-lista-container {
+    background-color: #f5f5f5;
+    padding: 60px 20px;
+    min-height: 80vh;
+}
+
+.criar-lista-form {
+    background-color: white;
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 600px;
+    margin: 0 auto;
+    ;
+}
+
+.criar-lista-form h2 {
+    color: rgb(255, 60, 26);
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.criar-lista-form label {
+    display: block;
+    margin-top: 20px;
+    font-weight: 500;
+    color: #333;
+}
+
+.criar-lista-form input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.criar-lista-form button {
+    margin-top: 30px;
+    width: 100%;
+    padding: 14px;
+    background-color: #fff;
+    color: rgb(255, 60, 26);
+    border: 1px solid rgb(255, 60, 26);
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.criar-lista-form button:hover {
+    background-color: rgb(255, 60, 26);
+    color: #fff;
+    border: 1px solid rgb(255, 60, 26);
+    cursor: pointer;
+}
