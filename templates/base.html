@@ -13,11 +13,23 @@
             <div class="menu-container">
                 <p class="boas-vindas">Seja <span class="boas-vindas-destaque">bem-vindo!</span></p>
                 <nav>
+                    {% if user.is_authenticated %}
                     <ul class="menu-links">
-                        <li><a href="">Ínicio</a></li>
+                        <li><a href="{% url 'index' %}">Início</a></li>
+                        <li><a href="{% url 'criar_lista' %}">Criar lista de compras</a></li>
                         <li><a href="">Sobre</a></li>
                         <li><a href="">Contatos</a></li>
+                        <li><a href="{% url 'logout' %}">Sair</a></li>
                     </ul>
+                    {% else %}
+                        <ul class="menu-links">
+                        <li><a href="">Início</a></li>
+                        <li><a href="">Sobre</a></li>
+                        <li><a href="">Contatos</a></li>
+                        <li><a href="{% url 'login' %}">Entrar</a></li>
+                        <li><a href="{% url 'cadastro' %}">Criar conta</a></li> 
+                        </ul>
+                    {% endif %}
                 </nav>
             </div>
         </section>

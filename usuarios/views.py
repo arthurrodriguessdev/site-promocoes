@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages #Módulo de mensagens
 from django.contrib.auth.models import User
+from django.contrib import auth
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as login_django #as - use como
 
@@ -71,4 +72,9 @@ def fazer_login(request):
 
 
 def logout(request):
-    return render(request, 'usuarios/logout.html')
+    auth.logout(request) 
+    return render(request, 'usuarios/login.html')
+
+
+def criar_lista(request):
+    return render(request, 'usuarios/criar_lista.html')
