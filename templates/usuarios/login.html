@@ -13,10 +13,19 @@
             {% block heading %}<h2>Bem-vindo de volta</h2>{% endblock %}
             {% block subtext %}<p>Preencha os campos e <span class="paragrafo-detalhe">acesse sua conta</span></p>{% endblock %}
             {% block form %}
-            <form>
+
+                {% if messages %}
+                    <ul class="messages">
+                    {% for message in messages %}
+                        <li class="{{ message.tags }}">{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+
+            <form action="{% url 'login' %}" method="POST">
                 {% csrf_token %} <!-- Token de segurança -->
-                <input type="email" id="email" name="email" placeholder="Digite seu E-mail">
-                <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
+                <input type="text" id="user" name="user" placeholder="Digite seu usuário">
+                <input type="password" id="senha" name="password" placeholder="Digite sua senha">
                 <button type="submit" value="entrar">Entrar</button>
                 <p class="ou-criar-conta">Ou</p>
                 <a href="{%  url 'cadastro' %}" class="botao-criar-conta">Criar conta</a>
