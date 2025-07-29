@@ -8,6 +8,7 @@
 
 {% block form %}
 <form action="{% url 'cadastro' %}" method="POST">
+    {% csrf_token %} <!-- Token de segurança -->
     <input type="text" id="user" name="user" placeholder="Digite seu nome de usuário">
     <input type="email" id="email" name="email" placeholder="Insira seu E-mail">
     <input type="password" id="senha" name="senha" placeholder="Crie uma senha">

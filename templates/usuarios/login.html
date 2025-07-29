@@ -14,6 +14,7 @@
             {% block subtext %}<p>Preencha os campos e <span class="paragrafo-detalhe">acesse sua conta</span></p>{% endblock %}
             {% block form %}
             <form>
+                {% csrf_token %} <!-- Token de segurança -->
                 <input type="email" id="email" name="email" placeholder="Digite seu E-mail">
                 <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
                 <button type="submit" value="entrar">Entrar</button>
