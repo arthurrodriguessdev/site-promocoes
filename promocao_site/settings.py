@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ofertas', #Adicionado
     'usuarios', #Adicionado
+    'listas',
     'django_browser_reload', #Adicionado
 ]
 

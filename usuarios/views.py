@@ -76,5 +76,3 @@ def logout(request):
     return render(request, 'usuarios/login.html')
 
 
-def criar_lista(request):
-    return render(request, 'usuarios/criar_lista.html')
