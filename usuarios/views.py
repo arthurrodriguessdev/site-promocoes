@@ -55,15 +55,11 @@ def fazer_login(request):
     if request.method == 'POST':
         user = request.POST.get('user')
         senha = request.POST.get('password')
-
-        print("Usuário recebido:", user)
-        print("Senha recebida:", senha)
         
         user = authenticate(request, username=user, password=senha)
 
         if user:
             login_django(request, user)
-            print('entrou')
             return redirect('index')
 
         else:
