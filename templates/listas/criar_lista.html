@@ -8,7 +8,14 @@
 
 {% block content %}
 
-
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li class="{{ message.tags }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  
   <div class="criar-lista-container">
       {% if user.is_authenticated %}
         <h1 class="nome-criar-lista">Crie sua lista, {{ user.username|title }}</h1>

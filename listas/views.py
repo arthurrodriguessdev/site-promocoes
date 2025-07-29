@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from listas.models import ListaCompras, Item
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 def criar_lista(request):
     if request.method == 'POST':
@@ -13,8 +14,8 @@ def criar_lista(request):
         lista = ListaCompras.objects.create(usuario=request.user, nome=nome_lista) #Lista recebe a instanciação do modelo
 
         if item_1 and item_2:
-            Item.objects.create(lista=lista, quantidade=qtd_1)
-            Item.objects.create(lista=lista, quantidade=qtd_2)
+            Item.objects.create(lista=lista, nome=item_1, quantidade=qtd_1)
+            Item.objects.create(lista=lista, nome=item_2, quantidade=qtd_2)
 
             print(nome_lista)
             print(item_1)
@@ -23,6 +24,7 @@ def criar_lista(request):
             print(qtd_2)
             print(lista.usuario)
 
+            messages.success(request, 'Lista criada com sucesso')
             return redirect('login')
 
     return render(request, 'listas/criar_lista.html')
