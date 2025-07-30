@@ -17,11 +17,8 @@
   
 <form action="{% url 'cadastro' %}" method="POST">
     {% csrf_token %} <!-- Token de segurança -->
+    {{ form.as_p }}
     <!-- O atributo name é importante para ser usado na view, para pegar o valor -->
-    <input type="text" id="user" name="user" placeholder="Digite seu nome de usuário" required>
-    <input type="email" id="email" name="email" placeholder="Insira seu E-mail" required>
-    <input type="password" id="senha" name="password" placeholder="Crie uma senha" required>
-    <input type="password" id="senha" name="password2" placeholder="Confirme sua senha" required>
     <button type="submit" value="entrar">Criar conta</button>
 </form>
 {% endblock %}

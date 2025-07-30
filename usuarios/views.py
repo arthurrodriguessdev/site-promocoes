@@ -3,52 +3,50 @@ from django.contrib.auth.models import User #Modelo de usuário do django
 from django.contrib.auth import authenticate, login
 from django.contrib import messages #Módulo de mensagens
 from django.contrib import auth 
+from usuarios.forms import CadastroForm
 
 def cadastro(request):
-    if request.method == "POST": #Se o botão de criar conta for clicado
-        #A variável vai receber o que o usuário preencher, se for get ou post
-        username = request.POST.get('user').lower() #O que está dentro do parêntese é o 'name' do template
-        email = request.POST.get('email').lower()
-        senha = request.POST.get('password')
-        senha2 = request.POST.get('password2')
+    if request.method == 'GET':
+        form = CadastroForm()
+        formulario = {
+            'form': form
+        }
 
-        #Realizando verificações
-        if not username.strip():
-            messages.error(request, 'Preencha o campo de usuário corretamente') #Mensagem de erro com o módulo messages
-            return redirect('cadastro')
-        
-        if not email.strip():
-            messages.error(request, 'Preencha o campo de e-mail corretamente')
-            return redirect('cadastro')
-
-        if senha != senha2:
-            messages.error(request, 'As senhas devem ser iguais')
-            return redirect('cadastro')
-        
-        if len(senha) < 8:
-            messages.error(request, 'As senhas devem ter, no mínimo, 8 caracteres')
-            return redirect('cadastro')
-        
-        #Verificando senão existe nenhum objeto User com o e-mail fornecido
-        if User.objects.filter(email=email).exists():
-            messages.error(request, 'Usuário já cadastrado')
-            return redirect('login')
-        
-        #Verificando senão existe nenhum objeto User com o username fornecido
-        if User.objects.filter(username=username).exists():
-            messages.error(request, 'Já existe um perfil com esse nome de usuário')
-            return redirect('login')
-        
-        #Se ele não entrar em nenhum if, user recebe a instanciação do objeto, usuário é criado
-        user = User.objects.create_user(username=username, email=email, password=senha) 
-        user.save()
-
-        messages.success(request, 'Usuário criado com sucesso')
-
-        return redirect('login')
-    
+        return render(request, 'usuarios/cadastro.html', formulario)
     else:
-        return render(request, 'usuarios/cadastro.html')
+        form = CadastroForm(request.POST)
+
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            password2 = form.cleaned_data['password2']
+
+            if password != password2:
+                messages.error(request, 'As senhas devem ser iguais')
+                return redirect('cadastro')
+            
+            if len(password) < 8:
+                messages.error(request, 'A senha deve ter, no mínimo, 8 caracteres')
+                return redirect('cadastro')
+            
+            if User.objects.filter(email=email).exists():
+                messages.error(request, 'E-mail já existente')
+                return redirect('login')
+            
+            if User.objects.filter(username=username).exists():
+                messages.error(request, 'O usuário já existe')
+                return redirect('login')
+            
+            user = User.objects.create_user(username=username, email=email, password=password)
+            print(user.password)
+
+            return redirect('login')
+        else:
+            messages.error(request, 'Formulário inválido')
+            return redirect('cadastro')
+
+
 
 
 def fazer_login(request):
