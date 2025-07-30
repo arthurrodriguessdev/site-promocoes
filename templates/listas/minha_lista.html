@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/listas/criar_listas.css' %}">{% endblock %}
+
+{% block titulo_pag %}<p class="boas-vindas">Minhas Listas</p>{% endblock %}
+
+{% block title %}Minhas Listas{% endblock %}
+
+{% block content %}
+    <div class="minhas-listas">
+        <div class="container-listas">
+            <h1>Minhas Listas</h1>
+
+            {% if lista %}
+                <ul>
+                {% for lista in lista %}
+                    <li>
+                    <h2>{{ lista.nome }}</h2>
+                    <a href="{% url 'exibir_lista' id=lista.id%}">Exibir detalhes</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>Você ainda não criou nenhuma lista.</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/listas/criar_listas.css' %}">{% endblock %}
+
+{% block title %}Detalhes da Lista{% endblock %}
+
+{% block titulo_pag %}<p class="boas-vindas">Detalhes da Lista</p>{% endblock %}
+
+{% block content %}
+  <div class="detalhes-lista-container">
+
+    {% if user.is_authenticated %}
+      <h1 class="titulo-lista">{{ lista.nome }}</h1>
+    {% endif %}
+
+    {% if item %}
+      <table class="tabela-itens">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Quantidade</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in item %}
+            <tr>
+              <td>{{ item.nome }}</td>
+              <td>{{ item.quantidade }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="nenhum-item">Nenhum item encontrado nesta lista.</p>
+    {% endif %}
+{% endblock %}

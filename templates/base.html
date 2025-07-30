@@ -14,12 +14,13 @@
     <header>
         <section class="menu">
             <div class="menu-container">
-                <p class="boas-vindas">Seja <span class="boas-vindas-destaque">bem-vindo!</span></p>
+                {% block titulo_pag %}<p class="boas-vindas">Seja <span class="boas-vindas-destaque">bem-vindo!</span></p>{% endblock %}
                 <nav>
                     {% if user.is_authenticated %}
                     <ul class="menu-links">
                         <li><a href="{% url 'index' %}">Início</a></li>
                         <li><a href="{% url 'criar_lista' %}">Criar lista de compras</a></li>
+                        <li><a href="{% url 'minha_lista' %}">Minhas listas</a></li>
                         <li><a href="">Sobre</a></li>
                         <li><a href="">Contatos</a></li>
                         <li><a href="{% url 'logout' %}">Sair</a></li>
