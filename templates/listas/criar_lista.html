@@ -25,11 +25,9 @@
       
     <div class="criar-lista-form">
       <h2>Criar Lista de Compras</h2>
-      <form action="{% url 'criar_lista' %}" method="post">
+      <form action="{% url 'criar_lista' %}" method="POST">
         {% csrf_token %}
-
-        <label for="id_nome_lista">Nome da Lista:</label>
-        <input type="text" name="nome_lista" id="id_nome_lista" required>
+        {{ form.as_p }}
 
         <label for="id_item_1">Item:</label>
         <input type="text" name="item_1" id="id_item_1" required>
