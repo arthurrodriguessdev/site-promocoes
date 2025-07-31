@@ -19,3 +19,7 @@ def detalhamento_oferta(request, id):
     }
 
     return render(request, 'ofertas/detalhes_oferta.html', detalhamento)
+
+
+def sobre_software(request):
+    return render(request, 'ofertas/sobre.html')

@@ -20,7 +20,7 @@
   
   <div class="criar-lista-container">
       {% if user.is_authenticated %}
-        <h1 class="nome-criar-lista">Crie sua lista, {{ user.username|title }}</h1>
+        <h1 class="nome-criar-lista">Crie sua lista, {{ user.first_name|title }}</h1>
       {% endif %}
       
     <div class="criar-lista-form">
