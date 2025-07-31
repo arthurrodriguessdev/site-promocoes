@@ -32,14 +32,9 @@ body, html {
 
 /* Mensagem de boas-vindas */
 .boas-vindas {
-    color: #111827;
-    font-weight: 500;
-    font-size: 18px;
-}
-
-.boas-vindas-destaque {
+    color: #2b2b2b;
     font-weight: 600;
-    color: #ef4444;
+    font-size: 20px;
 }
 
 /* Menu links */
@@ -200,7 +195,7 @@ body, html {
 /* Página de detalhes */
 .container-detalhe {
     min-height: 100vh;
-    background-color: #ffffff;
+    background-color: #f9fafb; /* cinza claro para suavizar o fundo */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -208,51 +203,47 @@ body, html {
     padding: 40px 20px;
 }
 
+/* Card simplificado */
 .card-detalhes {
-    min-height: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    border-radius: 20px;
-    background-color: #ef4444;
-    padding: 60px;
+    background-color: #ffffff;
+    border: 1px solid #ddd; /* borda cinza clara */
+    border-radius: 6px;
+    padding: 32px 40px;
     width: 100%;
     max-width: 700px;
+    box-shadow: none; /* sem sombra */
+    color: #374151; /* cor de texto padrão */
     font-size: 16px;
-    color: #ffffff;
-}
-
-.card-detalhes h2 {
-    background-color: #ffffff;
-    color: #ef4444;
-    border-radius: 10px;
-    padding: 12px;
-    text-align: center;
-    font-size: 28px;
-    width: 100%;
-    transition: all 0.3s ease;
-}
-
-.card-detalhes h2:hover {
-    background: #ef4444;
-    color: #fff;
-}
-
-.paragrafos-detalhes {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 40px;
+    gap: 20px;
 }
 
+/* Título do card */
+.card-detalhes h2 {
+    color: #ef4444; /* seu vermelho de destaque */
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+/* Container dos parágrafos (lista) */
+.paragrafos-detalhes {
+    margin-top: 20px;
+}
+
+/* Lista de informações */
 .lista-info {
-    color: #ffffff;
-    list-style-position: inside;
+    list-style-type: none; /* sem marcadores */
+    padding-left: 0;
 }
 
 .lista-info li {
     margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #fff;
+    padding-left: 12px;
+    border-left: 3px solid #ef4444; /* linha vertical discreta */
+    color: #4b5563; /* cinza escuro para texto */
+    font-weight: 500;
+    font-size: 15px;
 }
