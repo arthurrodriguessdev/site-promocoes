@@ -5,7 +5,7 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-  <h1 class="ola-nome">Olá, {{ user.username|title }}</h1>
+  <h1 class="ola-nome">Olá, {{ user.first_name|title }}</h1>
 {% endif %}
 
 <section class="ofertas">

@@ -19,6 +19,7 @@ def cadastro(request):
         if form.is_valid():
             username = form.cleaned_data['username']
             email = form.cleaned_data['email']
+            first_name = form.cleaned_data['first_name']
             password = form.cleaned_data['password']
             password2 = form.cleaned_data['password2']
 
@@ -38,15 +39,13 @@ def cadastro(request):
                 messages.error(request, 'O usuário já existe')
                 return redirect('login')
             
-            user = User.objects.create_user(username=username, email=email, password=password)
+            user = User.objects.create_user(username=username, email=email, password=password, first_name=first_name)
             print(user.password)
 
             return redirect('login')
         else:
             messages.error(request, 'Formulário inválido')
             return redirect('cadastro')
-
-
 
 
 def fazer_login(request):

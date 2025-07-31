@@ -18,7 +18,7 @@ class CadastroForm(forms.ModelForm): #Criamos ua classe model form, herdando de 
 
     class Meta: #Classe importante, vai falar o que será tratado dentro da classe
         model = User #Recebe a model
-        fields = ['username', 'email'] #Campos que serão preenchidos. Se for todos, podemos: '__all__'
+        fields = ['username', 'email', 'first_name'] #Campos que serão preenchidos. Se for todos, podemos: '__all__'
 
         widgets={
             'username': forms.TextInput(attrs={
@@ -27,11 +27,15 @@ class CadastroForm(forms.ModelForm): #Criamos ua classe model form, herdando de 
             'email': forms.EmailInput(attrs={
                 'placeholder': 'Insira seu e-mail',
             }),
+            'first_name': forms.TextInput(attrs={
+                'placeholder': 'Insira seu primeiro nome',
+            }),
         }
 
         labels={
             'username': '',
             'email': '',
+            'first_name': '',
         }
 
     def __init__(self, *args, **kwargs):
