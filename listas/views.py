@@ -2,28 +2,42 @@ from django.shortcuts import render, redirect, get_object_or_404
 from listas.models import ListaCompras, Item
 from django.contrib.auth.models import User
 from django.contrib import messages
+from listas.forms import ListaComprasForm
 
 def criar_lista(request):
     if request.method == 'POST':
-        
-        #Pega os dados preenchidos no formulário
-        nome_lista = request.POST.get('nome_lista')
-        item_1 = request.POST.get('item_1')
-        item_2 = request.POST.get('item_2')
-        qtd_1 = request.POST.get('qtd_1')
-        qtd_2 = request.POST.get('qtd_2')
+        form = ListaComprasForm(request.POST)
 
-        #Lista recebe o objeto, agora ela é um objeto. (preenche as lacunas de models)
-        lista = ListaCompras.objects.create(usuario=request.user, nome=nome_lista) 
+        if form.is_valid():
+            nome = form.cleaned_data['nome']
 
-        if item_1 and item_2:
-            Item.objects.create(lista=lista, nome=item_1, quantidade=qtd_1)
-            Item.objects.create(lista=lista, nome=item_2, quantidade=qtd_2)
+            if ListaCompras.objects.filter(nome=nome, usuario=request.user).exists():
+                messages.error(request, 'Você já possui uma lista com esse nome')
+                return redirect('criar_lista')
+            
+            lista = ListaCompras.objects.create(nome=nome, usuario=request.user)
 
-            messages.success(request, 'Lista criada com sucesso')
-            return redirect('minha_lista')
+            item_1 = request.POST.get('item_1')
+            item_2 = request.POST.get('item_2')
+            qtd_1 = request.POST.get('qtd_1')
+            qtd_2 = request.POST.get('qtd_2')
 
-    return render(request, 'listas/criar_lista.html')
+            if item_1 and item_2:
+                Item.objects.create(lista=lista, nome_item=item_1, quantidade=qtd_1)
+                Item.objects.create(lista=lista, nome_item=item_2, quantidade=qtd_2)
+
+                messages.success(request, 'Lista de compras criada com sucesso')
+                return redirect('minha_lista')
+
+        return redirect('minha_lista')
+
+    else:
+        form = ListaComprasForm()
+        formulario = {
+            'form': form
+        }
+
+        return render(request, 'listas/criar_lista.html', formulario)
 
 
 def minha_lista(request):

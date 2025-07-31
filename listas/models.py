@@ -25,7 +25,7 @@ class Item(models.Model):
     lista = models.ForeignKey(ListaCompras, on_delete=models.CASCADE, related_name='itens')
 
     # Nome do item (produto)
-    nome = models.CharField(max_length=100)
+    nome_item = models.CharField(max_length=100)
     
     # Quantidade do item (valor positivo)
     quantidade = models.PositiveIntegerField(default=1)
