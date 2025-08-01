@@ -60,35 +60,35 @@ def exibir_lista(request, id):
 
 def editar_lista(request, id_lista):
     lista = get_object_or_404(ListaCompras, id=id_lista)
+    lista_itens = {
+        'lista': lista
+    }
 
     if request.method == 'POST':
-
-        
         item_1v = request.POST.get('item_1')
         item_2v = request.POST.get('item_2')
         qtd_1v = request.POST.get('qtd_1')
         qtd_2v = request.POST.get('qtd_2')
-        id_item1 = request.POST.get('id_item1')
 
-        item1 = Item.objects.filter(lista=lista, id=id_item1).first()
-        item2 = Item.objects.filter(lista=lista, nome_item=item_2v).first()
+        itens = Item.objects.filter(lista=lista)
+        
+        if len(itens) >= 2:
+            itens[0].nome_item = item_1v
+            itens[0].quantidade = qtd_1v
+            itens[0].save()
 
-        print(item1)
-        print(item2)
+            itens[1].nome_item = item_2v
+            itens[1].quantidade = qtd_2v
+            itens[1].save()
 
-        if item1:
-            item1.nome_item = item_1v
-            item1.quantidade = qtd_1v
-            item1.save()
-            print(item1.nome_item)
-            print(item1.quantidade)
+            messages.success(request, 'Lista atualizada com sucesso')
+            return redirect('minha_lista')
 
-        if item2:
-            item2.nome_item = item_2v
-            item2.quantidade = qtd_2v
-            item2.save()
-
-        return redirect('sobre_software')
+        return redirect('minha_lista')
     
     else:
-        return render(request, 'listas/editar_lista.html')
+        return render(request, 'listas/editar_lista.html', lista_itens)
+    
+
+def excluir_lista(request):
+    pass

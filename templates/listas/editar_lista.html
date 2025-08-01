@@ -20,7 +20,7 @@
   
   <div class="criar-lista-container">
     <div class="criar-lista-form">
-      <h2>Editar Lista de Compras</h2>
+      <h2>Editar {{ lista.nome }}</h2>
       <form action="" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
