@@ -2,29 +2,42 @@
 
 {% load static %}
 
-{% block extra_css %}<link rel="stylesheet" href="{% static 'css/listas/criar_listas.css' %}">{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/listas/criar_listas.css' %}">
+{% endblock %}
 
-{% block titulo_pag %}<p class="boas-vindas">Minhas Listas</p>{% endblock %}
+{% block titulo_pag %}
+<p class="boas-vindas">Minhas Listas</p>
+{% endblock %}
 
 {% block title %}Minhas Listas{% endblock %}
 
 {% block content %}
-    <div class="minhas-listas">
-        <div class="container-listas">
-            <h1>Minhas Listas</h1>
+<div class="minhas-listas">
+    <div class="container-listas">
+        <h1>Minhas Listas</h1>
 
-            {% if lista %}
-                <ul>
-                {% for lista in lista %}
-                    <li>
+        {% if lista %}
+            <ul>
+            {% for lista in lista %}
+                <li>
                     <h2>{{ lista.nome }}</h2>
-                    <a href="{% url 'exibir_lista' id=lista.id%}">Exibir detalhes</a>
-                    </li>
-                {% endfor %}
-                </ul>
-            {% else %}
-                <p>Você ainda não criou nenhuma lista.</p>
-            {% endif %}
-        </div>
+
+                    <a href="{% url 'exibir_lista' id=lista.id %}" class="exibir-detalhes-lista">Exibir detalhes</a>
+
+                    <a href="{% url 'editar_lista' id_lista=lista.id %}" class="edit">
+                        <i class="fa-solid fa-pen icone-editar"></i>
+                    </a>
+
+                    <a class="botao-apagar">
+                        <i class="fa-solid fa-trash icone-apagar"></i>
+                    </a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>Você ainda não criou nenhuma lista.</p>
+        {% endif %}
     </div>
+</div>
 {% endblock %}

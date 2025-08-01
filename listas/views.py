@@ -57,3 +57,38 @@ def exibir_lista(request, id):
     }
 
     return render(request, 'listas/exibir_lista.html', contexto)
+
+def editar_lista(request, id_lista):
+    lista = get_object_or_404(ListaCompras, id=id_lista)
+
+    if request.method == 'POST':
+
+        
+        item_1v = request.POST.get('item_1')
+        item_2v = request.POST.get('item_2')
+        qtd_1v = request.POST.get('qtd_1')
+        qtd_2v = request.POST.get('qtd_2')
+        id_item1 = request.POST.get('id_item1')
+
+        item1 = Item.objects.filter(lista=lista, id=id_item1).first()
+        item2 = Item.objects.filter(lista=lista, nome_item=item_2v).first()
+
+        print(item1)
+        print(item2)
+
+        if item1:
+            item1.nome_item = item_1v
+            item1.quantidade = qtd_1v
+            item1.save()
+            print(item1.nome_item)
+            print(item1.quantidade)
+
+        if item2:
+            item2.nome_item = item_2v
+            item2.quantidade = qtd_2v
+            item2.save()
+
+        return redirect('sobre_software')
+    
+    else:
+        return render(request, 'listas/editar_lista.html')

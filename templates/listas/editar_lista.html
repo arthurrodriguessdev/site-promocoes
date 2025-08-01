@@ -19,29 +19,30 @@
   {% endif %}
   
   <div class="criar-lista-container">
-      {% if user.is_authenticated %}
-        <h1 class="nome-criar-lista">Crie sua lista, {{ user.first_name|title }}</h1>
-      {% endif %}
-      
     <div class="criar-lista-form">
-      <h2>Criar Lista de Compras</h2>
-      <form action="{% url 'criar_lista' %}" method="POST">
+      <h2>Editar Lista de Compras</h2>
+      <form action="" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
 
+        <!-- Item 1 -->
+        <input type="hidden" name="id_item1" value="{{ item1.id }}">
         <label for="id_item_1">Item:</label>
-        <input type="text" name="item_1" id="id_item_1" required>
+        <input type="text" name="item_1" id="id_item_1" required value="{{ item1.nome_item }}">
 
         <label for="id_qtd_1">Quantidade:</label>
-        <input type="number" name="qtd_1" id="id_qtd_1" min="1" value="1" required>
+        <input type="number" name="qtd_1" id="id_qtd_1" min="1" value="{{ item1.quantidade }}" required>
 
+        <!-- Item 2 -->
+        <input type="hidden" name="id_item2" value="{{ item2.id }}">
         <label for="id_item_2">Item:</label>
-        <input type="text" name="item_2" id="id_item_2">
+        <input type="text" name="item_2" id="id_item_2" value="{{ item2.nome_item }}">
 
         <label for="id_qtd_2">Quantidade:</label>
-        <input type="number" name="qtd_2" id="id_qtd_2" min="1" value="1">
+        <input type="number" name="qtd_2" id="id_qtd_2" min="1" value="{{ item2.quantidade }}">
 
-        <button type="submit">Criar Lista</button>
+
+        <button type="submit">Salvar</button>
       </form>
     </div>
   </div>

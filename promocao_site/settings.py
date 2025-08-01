@@ -80,9 +80,9 @@ WSGI_APPLICATION = 'promocao_site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'supermercado',
+        'NAME': 'promocoes',
         'USER': 'postgres',
-        'PASSWORD': '1801',
+        'PASSWORD': 'Ar1801!',
         'HOST': 'localhost',
     }
 }
