@@ -59,7 +59,7 @@ def exibir_lista(request, id):
     return render(request, 'listas/exibir_lista.html', contexto)
 
 def editar_lista(request, id_lista):
-    lista = get_object_or_404(ListaCompras, id=id_lista)
+    lista = get_object_or_404(ListaCompras, id=id_lista, usuario=request.user)
     lista_itens = {
         'lista': lista
     }
@@ -90,5 +90,8 @@ def editar_lista(request, id_lista):
         return render(request, 'listas/editar_lista.html', lista_itens)
     
 
-def excluir_lista(request):
-    pass
+def excluir_lista(request, ide):
+    lista = get_object_or_404(ListaCompras, id=ide, usuario=request.user)
+    lista.delete()
+
+    return redirect('minha_lista')
