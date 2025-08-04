@@ -21,17 +21,18 @@
             <ul>
             {% for lista in lista %}
                 <li>
+                <div class="info-lista">
                     <h2>{{ lista.nome }}</h2>
-
-                    <a href="{% url 'exibir_lista' id=lista.id %}" class="exibir-detalhes-lista">Exibir detalhes</a>
-
-                    <a href="{% url 'editar_lista' id_lista=lista.id %}" class="edit">
-                        <i class="fa-solid fa-pen icone-editar"></i>
+                </div>
+                <div class="acoes-lista">
+                    <a href="{% url 'exibir_lista' id=lista.id %}" class="exibir-detalhes-lista">Exibir</a>
+                    <a href="{% url 'editar_lista' id_lista=lista.id %}" class="icone-editar">
+                    <i class="fa-solid fa-pen"></i>
                     </a>
-
-                    <a href="{% url 'excluir_lista' ide=lista.id %}" class="botao-apagar">
-                        <i class="fa-solid fa-trash icone-apagar"></i>
+                    <a href="{% url 'excluir_lista' ide=lista.id %}" class="icone-apagar">
+                    <i class="fa-solid fa-trash"></i>
                     </a>
+                </div>
                 </li>
             {% endfor %}
             </ul>

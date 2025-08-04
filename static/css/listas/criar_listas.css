@@ -162,12 +162,11 @@
 
 .container-listas ul li {
     display: flex;
-    justify-content: space-between; /* texto à esquerda, botão à direita */
+    justify-content: space-between;
     align-items: center;
-    padding: 12px 16px;
+    padding: 16px 20px;
     border-bottom: 1px solid #e5e7eb;
-    font-size: 18px;
-    color: #374151;
+    flex-wrap: wrap; 
 }
 
 .container-listas ul li:last-child {
@@ -181,6 +180,14 @@
     padding-left: 12px;
     border-left: 3px solid #ef4444;
 }
+
+.info-lista h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #111827;
+}
+
 
 /* Botão link */
 .exibir-detalhes-lista {
