@@ -115,6 +115,46 @@ body, html {
     font-weight: 600;
 }
 
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: center;
+    padding: 25px;
+}
+
+input[type="text"] {
+    width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #e3e1e1;
+    border-radius: 4px;
+    margin-right: 10px;
+    transition: border-bottom-color 0.3s ease-in-out;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-bottom-color: #ef4444;
+}
+
+button[type="submit"] {
+    background-color: #ef4444;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover {
+    background-color: #e21414;
+}
+
 /* Ofertas */
 .ofertas {
     padding: 50px 20px;

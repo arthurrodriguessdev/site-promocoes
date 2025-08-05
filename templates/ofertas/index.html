@@ -6,6 +6,12 @@
 {% block content %}
 {% if user.is_authenticated %}
   <h1 class="ola-nome">Olá, {{ user.first_name|title }}</h1>
+
+  <form action="{% url 'listar_ofertas' %}" method="GET">
+    <input type="text" name="search" placeholder="Buscar Supermercado...">
+    <button type="submit">Buscar</button>
+  </form>
+  
 {% endif %}
 
 <section class="ofertas">
