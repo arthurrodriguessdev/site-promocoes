@@ -3,7 +3,7 @@ from ofertas.models import Oferta
 from django.contrib.auth.decorators import login_required
 
 def index(request):
-    oferta = Oferta.objects.all().order_by('nome_supermercado') #Pega todos os objetos do banco de dados e salva na variável
+    oferta = Oferta.objects.all().order_by('supermercado__nome_supermercado') #Pega todos os objetos do banco de dados e salva na variável
     ofertas = {
         'ofertas': oferta
     }
@@ -25,7 +25,7 @@ def listar_ofertas(request):
     search = request.GET.get('search')
 
     if search:
-        oferta = Oferta.objects.filter(nome_supermercado__icontains=search).order_by('nome_supermercado')
+        oferta = Oferta.objects.filter(supermercado__nome_supermercado__icontains=search).order_by('supermercado__nome_supermercado')
     else:
         oferta = Oferta.objects.all().order_by('nome_supermercado')
 

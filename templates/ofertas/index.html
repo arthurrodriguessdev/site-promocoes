@@ -7,9 +7,9 @@
 {% if user.is_authenticated %}
   <h1 class="ola-nome">Olá, {{ user.first_name|title }}</h1>
 
-  <form action="{% url 'listar_ofertas' %}" method="GET">
-    <input type="text" name="search" placeholder="Buscar Supermercado...">
-    <button type="submit">Buscar</button>
+  <form action="{% url 'listar_ofertas' %}" method="GET" class="search-supermercado">
+    <input type="text" name="search" placeholder="Buscar Supermercado..." class="buscar-supermercado">
+    <button type="submit" class="buscar-botao">Buscar</button>
   </form>
   
 {% endif %}
@@ -20,7 +20,7 @@
     {% if ofertas %}
     {% for oferta in ofertas %}
       <div class="card">
-        <h3>Supermercado {{ oferta.nome_supermercado }}</h3>
+        <h3>Supermercado {{ oferta.supermercado }}</h3>
         <p>{{ oferta.produtos_em_promocao }}</p>
         <a href="{% url 'detalhamento' id=oferta.id %}" class="botao-ver-ofertas">Ver ofertas</a>
       </div>

@@ -115,7 +115,7 @@ body, html {
     font-weight: 600;
 }
 
-form {
+.search-supermercado {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,7 +125,7 @@ form {
     padding: 25px;
 }
 
-input[type="text"] {
+.buscar-supermercado {
     width: 400px;
     padding: 10px;
     font-size: 16px;
@@ -135,12 +135,12 @@ input[type="text"] {
     transition: border-bottom-color 0.3s ease-in-out;
 }
 
-input[type="text"]:focus {
+.buscar-supermercado:focus {
     outline: none;
     border-bottom-color: #ef4444;
 }
 
-button[type="submit"] {
+.buscar-botao {
     background-color: #ef4444;
     color: #fff;
     border: none;
@@ -151,7 +151,7 @@ button[type="submit"] {
     transition: background-color 0.3s ease-in-out;
 }
 
-button[type="submit"]:hover {
+.buscar-botao:hover {
     background-color: #e21414;
 }
 
