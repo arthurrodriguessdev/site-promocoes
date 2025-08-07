@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from ofertas.models import Oferta
 from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView
 
 @login_required(login_url='login')
 def detalhamento_oferta(request, id):
@@ -13,18 +14,19 @@ def detalhamento_oferta(request, id):
     return render(request, 'ofertas/detalhes_oferta.html', detalhamento)
 
 
-def listar_ofertas(request):
-    oferta = Oferta.objects.all().order_by('supermercado__nome_supermercado')
-    search = request.GET.get('search')
+class ListarOfertas(ListView):
+    model = Oferta
+    template_name = 'ofertas/index.html'
+    context_object_name = 'ofertas'
 
-    if search:
-        oferta = Oferta.objects.filter(supermercado__nome_supermercado__icontains=search).order_by('supermercado__nome_supermercado')
+    def get_queryset(self):
+        ofertas = super().get_queryset().order_by('supermercado__nome_supermercado')
+        search = self.request.GET.get('search')
 
-    ofertas = {
-        'ofertas': oferta
-    }
-
-    return render(request, 'ofertas/index.html', ofertas)
+        if search:
+            ofertas = Oferta.objects.filter(supermercado__nome_supermercado__icontains=search).order_by('supermercado__nome_supermercado')
+            
+        return ofertas
 
 
 def sobre_software(request):
