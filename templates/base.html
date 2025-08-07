@@ -22,7 +22,7 @@
                 <nav>
                     {% if user.is_authenticated %}
                     <ul class="menu-links">
-                        <li><a href="{% url 'index' %}">Início</a></li>
+                        <li><a href="{% url 'listar_ofertas' %}">Início</a></li>
                         <li><a href="{% url 'criar_lista' %}">Criar lista de compras</a></li>
                         <li><a href="{% url 'minha_lista' %}">Minhas listas</a></li>
                         <li><a href="{% url 'sobre_software' %}">Sobre</a></li>
